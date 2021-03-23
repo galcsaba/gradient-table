@@ -55,8 +55,8 @@ class TableDrawer {
 
   String getCellColor(int x, int y) {
     // average calculating from width position and height position
-    var percent =
-        (((x - 1) * 100) / (width - 1) + ((y - 1) * 100) / (height - 1)) / 2;
+    // x and z srtarted at 0
+    var percent = ((x * 100) / (width - 1) + (y * 100) / (height - 1)) / 2;
 
     var red = startRed - (((startRed - endRed) / 100) * percent).round();
     var green =
@@ -76,9 +76,17 @@ class TableDrawer {
       plus = 1;
     }
     String technical = numOfCol.toRadixString(26);
+    var chLength = technical.runes.length;
     technical.runes.forEach((int ch) {
+      chLength--;
       var char = String.fromCharCode(ch);
-      excelStyle += String.fromCharCode(int.parse(char, radix: 26) + 64 + plus);
+      // just the last character needed to change
+      if (chLength == 1) {
+        excelStyle += String.fromCharCode(int.parse(char, radix: 26) + 64);
+      } else {
+        excelStyle +=
+            String.fromCharCode(int.parse(char, radix: 26) + 64 + plus);
+      }
     });
     return excelStyle;
   }

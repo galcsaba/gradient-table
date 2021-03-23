@@ -1,1 +1,45 @@
-<h2>Gradient</h2>
+<p class="lead">
+    Kérlek add meg a táblázat méretét!
+</p>
+
+<div [hidden]="isValid" class="alert alert-warning" role="alert">
+    {{ errorMsg }}
+</div>
+
+<div class="form-row align-items-center">
+    <div class="col-auto">
+        <label class="sr-only" for="tableSize">Name</label>
+        <input 
+            id="tableSize"
+            #tableSize
+            (change)="submitSize(tableSize)"
+            type="text" 
+            class="form-control mb-2" 
+            placeholder="2-100"
+        />
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th 
+                    *ngFor="let n of numSequence(tableDrawer.width); let i = index"
+                >{{ tableDrawer.getExcelCol(i+1) }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr 
+                *ngFor="let m of numSequence(tableDrawer.height); let j = index">
+                <th>{{ j+1 }}</th>
+                <th 
+                    *ngFor="let n of numSequence(tableDrawer.width); let k = index"
+                    style="background-color: {{tableDrawer.getCellColor(j, k)}}"
+                    title="{{tableDrawer.getCellColor(j, k)}}"
+                >&nbsp;</th>
+            </tr>
+        </tbody>
+    </table>
+</div>
