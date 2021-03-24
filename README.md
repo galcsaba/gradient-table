@@ -1,5 +1,9 @@
 # gradient table
 
+## Working Demo
+
+Working Demo on [Firebase](https://gradient-table-255.web.app/)
+
 ## Task description
 
 Given an integer input N between decimal values 2 and 100, create a two-dimensional table of N x N size. 
@@ -26,8 +30,17 @@ Submitted code should adhere to Dart and Angular best practices and style guides
 
 The solution should be submitted as a public Github repository url.
 
+## Further possible development
+
+* Remove bootstrap.css and add custom css instead
+* Separate width and height inputs
+* Changeable color based on color picker input
+* Form instead on a single input
+* Routing
+* Landing page, header, navigation, etc.
 
 
+## Base App Info
 
 A web app that uses [AngularDart](https://angulardart.dev) and
 [AngularDart Components](https://angulardart.dev/components).

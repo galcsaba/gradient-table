@@ -10,10 +10,12 @@ import 'package:gradient/src/gradient_component/table.class.dart';
   templateUrl: 'gradient_component.html',
   styleUrls: ['gradient_component.css'],
 )
-class GradientComponent implements OnInit {
+class GradientComponent {
   bool isValid = true;
   int tableSize = 2;
   String errorMsg = 'A méret minimum 2 és maximum 100 lehet.';
+
+  // iterable for table rows and cols in the gradient_component.html
   List numSequence(int i) {
     return List(i);
   }
@@ -31,7 +33,6 @@ class GradientComponent implements OnInit {
       isValid = true;
       tableDrawer.width = int.parse(size.value);
       tableDrawer.height = int.parse(size.value);
-      print(tableDrawer);
     }
   }
 
@@ -45,7 +46,4 @@ class GradientComponent implements OnInit {
     endGreen: 0,
     endBlue: 0,
   );
-
-  @override
-  void ngOnInit() {}
 }

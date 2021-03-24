@@ -36,8 +36,7 @@
                 <th>{{ j+1 }}</th>
                 <th 
                     *ngFor="let n of numSequence(tableDrawer.width); let k = index"
-                    style="background-color: {{tableDrawer.getCellColor(j, k)}}"
-                    title="{{tableDrawer.getCellColor(j, k)}}"
+                    style="background-color: {{ tableDrawer.getCellColor(j, k) }}"
                 >&nbsp;</th>
             </tr>
         </tbody>
